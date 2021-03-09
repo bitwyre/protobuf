@@ -16,7 +16,7 @@ class ProtobufConan(ConanFile):
     }
     default_options = {"shared": False, "use_pic": False}
     requires = [
-        "ZLib/1.2.11@bitwyre/stable"
+        "zlib/1.2.11@bitwyre/stable"
     ]
     generators = "cmake"
     exports_sources = "*"
@@ -33,7 +33,7 @@ class ProtobufConan(ConanFile):
         cmake.definitions['protobuf_BUILD_PROTOC_BINARIES'] = True
         cmake.definitions['protobuf_BUILD_SHARED_LIBS'] = False
         cmake.definitions['protobuf_BUILD_TESTS'] = False
-        cmake.definitions['ZLIB_ROOT'] = self.deps_cpp_info["ZLib"].rootpath
+        cmake.definitions['ZLIB_ROOT'] = self.deps_cpp_info["zlib"].rootpath
         cmake.configure(source_folder='cmake')
         return cmake
 
